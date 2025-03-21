@@ -57,6 +57,28 @@ const Form = memo(
             </div>
 
             <div>
+              <label htmlFor="fontFamily">
+                {" "}
+                Change font family
+                <select
+                  name="fontFamily"
+                  id="fontFamily"
+                  onChange={handleBannerChange}
+                  className="ml-2 border-1 border-gray-300 rounded-md px-2"
+                >
+                  <option value="exo">Exo</option>
+                  <option value="roboto">Roboto</option>
+                  <option value="oswald">Oswald</option>
+                  <option value="monospace">Monospace</option>
+                  <option value="lato">Lato</option>
+                  <option value="arial">Arial</option>
+                  <option value="cursive">Cursive</option>
+                  <option value="times">Times</option>
+                </select>
+              </label>
+            </div>
+
+            <div>
               <p>Change background color</p>
               <div className="flex gap-3 items-center">
                 <div
