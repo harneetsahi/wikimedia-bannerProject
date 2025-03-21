@@ -16,6 +16,7 @@ function App() {
   const initialState = {
     heading: "Tea can fix all your problems",
     fontSize: "22",
+    fontFamily: "exo",
     bgColor: "#dbc178",
     currentImage:
       "https://images.pexels.com/photos/904616/pexels-photo-904616.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -23,22 +24,27 @@ function App() {
     currentIndex: 0,
   };
 
-  const [bannerState, setBannerState] = useState(initialState);
+  const [bannerState, setBannerState] = useState(() => {
+    const savedState = localStorage.getItem("bannerState");
+    return savedState ? JSON.parse(savedState) : initialState;
+  });
 
   const handleBannerChange = (e) => {
     const { name, value } = e.target;
-    setBannerState((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    setBannerState((prevState) => {
+      const newState = { ...prevState, [name]: value };
+      localStorage.setItem("bannerState", JSON.stringify(newState));
+      return newState;
+    });
   };
 
   // created a separate function for color change as the react-colorful library handles destructuring differently. It passes color value instead of an event.
   const handleColorChange = (color) => {
-    setBannerState((prevState) => ({
-      ...prevState,
-      bgColor: color,
-    }));
+    setBannerState((prevState) => {
+      const newState = { ...prevState, bgColor: color };
+      localStorage.setItem("bannerState", JSON.stringify(newState));
+      return newState;
+    });
   };
 
   const handleIllustrationChange = (e) => {
@@ -46,12 +52,28 @@ function App() {
 
     setBannerState((prevState) => {
       const newIndex = (prevState.currentIndex + 1) % 6;
-      return {
+      const newState = {
         ...prevState,
         currentIndex: newIndex,
         currentIllustration: illustrations[newIndex],
       };
+      localStorage.setItem("bannerState", JSON.stringify(newState));
+      return newState;
     });
+  };
+
+  const handleBannerImageUpload = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      setBannerState((prevState) => {
+        const newState = {
+          ...prevState,
+          currentImage: URL.createObjectURL(file),
+        };
+        return newState;
+      });
+    }
   };
 
   return (
@@ -60,7 +82,7 @@ function App() {
         <Navbar />
         <Banner
           bannerState={bannerState}
-          handleBannerChange={handleBannerChange}
+          handleBannerImageUpload={handleBannerImageUpload}
         />
         <Form
           bannerState={bannerState}
