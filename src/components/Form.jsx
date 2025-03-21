@@ -64,7 +64,7 @@ const Form = memo(
                   name="fontFamily"
                   id="fontFamily"
                   onChange={handleBannerChange}
-                  className="ml-2 border-1 border-gray-300 rounded-md px-2"
+                  className="ml-2 border-1 border-gray-300 bg-[#ffffff9c] rounded-md px-2 py-1"
                 >
                   <option value="exo">Exo</option>
                   <option value="roboto">Roboto</option>

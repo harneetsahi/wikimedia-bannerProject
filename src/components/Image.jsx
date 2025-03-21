@@ -2,9 +2,6 @@ import React, { memo, useEffect } from "react";
 import CameraIcon from "../icons/CameraIcon";
 
 const Image = memo(({ currentImage, handleBannerImageUpload }) => {
-  
-  
-
   return (
     <>
       <div className=" relative h-full">

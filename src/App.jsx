@@ -18,8 +18,6 @@ function App() {
     fontSize: "22",
     fontFamily: "exo",
     bgColor: "#dbc178",
-    currentImage:
-      "https://images.pexels.com/photos/904616/pexels-photo-904616.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     currentIllustration: illustrations[0],
     currentIndex: 0,
   };
@@ -28,6 +26,10 @@ function App() {
     const savedState = localStorage.getItem("bannerState");
     return savedState ? JSON.parse(savedState) : initialState;
   });
+
+  const [currentImage, setCurrentImage] = useState(
+    "https://images.pexels.com/photos/904616/pexels-photo-904616.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  );
 
   const handleBannerChange = (e) => {
     const { name, value } = e.target;
@@ -66,13 +68,12 @@ function App() {
     const file = e.target.files[0];
 
     if (file) {
-      setBannerState((prevState) => {
-        const newState = {
-          ...prevState,
-          currentImage: URL.createObjectURL(file),
-        };
-        return newState;
-      });
+      if (bannerState.currentImage) {
+        URL.revokeObjectURL(bannerState.currentImage);
+      }
+
+      const imageUrl = URL.createObjectURL(file);
+      setCurrentImage(imageUrl);
     }
   };
 
@@ -83,6 +84,7 @@ function App() {
         <Banner
           bannerState={bannerState}
           handleBannerImageUpload={handleBannerImageUpload}
+          currentImage={currentImage}
         />
         <Form
           bannerState={bannerState}
