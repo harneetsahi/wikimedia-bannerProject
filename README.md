@@ -9,10 +9,14 @@ In the current phase, the project focuses on creating a simple web page that all
 
 ### Libraries and Frameworks used for the project:
 
-- Vitest as testing framework
-- ReactJS for frontend
-- Tailwind for css styling
-- React colorful for color picker functionality
+- ![Static Badge](https://img.shields.io/badge/vitest-vitesr?style=plastic&logo=vitest&logoColor=white&color=yellow) Vitest as testing framework
+
+- ![Static Badge](https://img.shields.io/badge/react-React?style=plastic&logo=react&logoColor=white&color=blue) ReactJS for frontend
+
+- ![Static Badge](https://img.shields.io/badge/tailwind-tailwind?style=plastic&logo=tailwindcss&logoColor=blue&color=white)
+  Tailwind for css styling
+- ![Static Badge](https://img.shields.io/badge/react_colorful-react_colorful?style=plastic&logo=react&logoColor=blue&color=white)
+  React colorful for color picker functionality
 
 ### Project consists of two main elements:
 
@@ -26,6 +30,8 @@ The following functionalities are available through form controls:
 - **Change banner text:** Modify the banner text using the first input field in the form.
 
 - **Change font size:** Change the font size of banner text using the input range slider.
+
+- **Change font family:** Change the font family of banner text using the dropdown menu.
 
 - **Change background color:** The second form element allows changing the background color. It also shows the hex code for the selected color.
 
@@ -49,5 +55,31 @@ The page is fully responsive including the navbar, form, images, icons, fonts, a
 ### Project proposition 🎨
 
 Currently the project uses pre-existing illustrations from different artists due to time constraints. However, I am great at making vector illustrations and would be happy to create custom illustrations if needed for the larger project.
+
+### Setup and Installation
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/harneetsahi/wikimedia-bannerProject.git
+```
+
+2. **Install dependencies**
+
+```
+npm install
+```
+
+3. **Run the development server**
+
+```
+npm run dev
+```
+
+4. **Run tests**
+
+```
+npm run test
+```
 
 ---
