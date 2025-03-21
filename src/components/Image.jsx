@@ -1,24 +1,9 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import CameraIcon from "../icons/CameraIcon";
 
-const Image = memo(({ currentImage, handleBannerChange }) => {
-  const uploadImage = (e) => {
-    const file = e.target.files[0];
-
-    if (file) {
-      if (currentImage) {
-        URL.revokeObjectURL(currentImage);
-      }
-
-      const imageUrl = URL.createObjectURL(file);
-      handleBannerChange({
-        target: {
-          name: "currentImage",
-          value: imageUrl,
-        },
-      });
-    }
-  };
+const Image = memo(({ currentImage, handleBannerImageUpload }) => {
+  
+  
 
   return (
     <>
@@ -46,7 +31,7 @@ const Image = memo(({ currentImage, handleBannerChange }) => {
             type="file"
             name="image"
             id="image"
-            onChange={uploadImage}
+            onChange={handleBannerImageUpload}
           />
         </label>
       </div>

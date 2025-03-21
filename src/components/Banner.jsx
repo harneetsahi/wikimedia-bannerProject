@@ -3,7 +3,7 @@ import Image from "./Image";
 import Illustration from "./Illustration";
 import CloseIcon from "../icons/CloseIcon";
 
-const Banner = memo(({ bannerState, handleBannerChange }) => {
+const Banner = memo(({ bannerState, handleBannerImageUpload }) => {
   const [showBanner, setShowBanner] = useState(true);
 
   const hideBanner = () => {
@@ -37,8 +37,15 @@ const Banner = memo(({ bannerState, handleBannerChange }) => {
               aria-hidden="true"
             />
 
-            <div className="text-center self-center font-exo md:text-xl sm:text-lg text-sm px-2 w-1/2  ">
-              <h2 style={{ fontSize: `${bannerState?.fontSize}px` }}>
+            <div
+              className={`text-center self-center md:text-xl sm:text-lg text-sm px-2 w-1/2 `}
+            >
+              <h2
+                style={{
+                  fontSize: `${bannerState?.fontSize}px`,
+                  fontFamily: `${bannerState?.fontFamily}`,
+                }}
+              >
                 {bannerState?.heading}
               </h2>
             </div>
@@ -52,7 +59,7 @@ const Banner = memo(({ bannerState, handleBannerChange }) => {
             <div className="w-1/2 p-2 ">
               <Image
                 currentImage={bannerState?.currentImage}
-                handleBannerChange={handleBannerChange}
+                handleBannerImageUpload={handleBannerImageUpload}
               />
             </div>
           </section>
