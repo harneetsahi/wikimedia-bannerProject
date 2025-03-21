@@ -21,16 +21,16 @@ const Navbar = memo(() => {
         </div>
 
         <div className=" text-sm flex-1 md:max-w-140 max-w-80 mx-8">
-          <div className="search-container text-center md:block">
-            <label className="relative">
+          <div className="search-container text-center md:block relative">
+            <label className="">
               <input
-                className=" w-full  border-1 border-x-red-700 border-y-blue-800 rounded-2xl py-1 pl-4 pr-8"
+                className=" w-full border-1 border-x-red-700 border-y-blue-800 rounded-2xl py-1 pl-4 pr-8"
                 type="text"
                 placeholder="Search"
               />
               <SearchIcon
                 className={
-                  "absolute right-1 top-0 bottom-0 mx-1 cursor-pointer"
+                  "absolute right-2 top-[23%] bottom-0 mx-1 cursor-pointer"
                 }
               />
             </label>
