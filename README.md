@@ -1,5 +1,7 @@
 # MediaWiki banners - Outreachy project #1
 
+[Live Demo](https://wikimedia-banner-project.vercel.app)
+
 This project is part of a larger initiative to simplify the creation and customization of MediaWiki banners.
 In the current phase, the project focuses on creating a simple web page that allows easy modifications to the banner in real time.
 
