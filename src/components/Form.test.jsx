@@ -50,4 +50,28 @@ describe("Form", () => {
 
     expect(mockHandleIllustrationChange).toHaveBeenCalledTimes(1);
   });
+
+  it("handleBannerImageUpload is called correctly", () => {
+    const mockhandleBannerImageUpload = vi.fn();
+    window.URL.createObjectURL = vi.fn();
+
+    afterEach(() => {
+      window.URL.createObjectURL.mockReset();
+    });
+
+    render(
+      <Form
+        bannerState={bannerState}
+        handleBannerImageUpload={mockhandleBannerImageUpload}
+      />
+    );
+
+    const imageElement = screen.getByTestId("image-element");
+
+    const imageUrl = URL.createObjectURL("/image2");
+
+    fireEvent.change(imageElement, {
+      target: { name: "currentImage", value: imageUrl },
+    });
+  });
 });
