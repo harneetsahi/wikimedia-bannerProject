@@ -1,7 +1,7 @@
-import React, { memo, useEffect } from "react";
+import React, { memo } from "react";
 import CameraIcon from "../icons/CameraIcon";
 
-const Image = memo(({ currentImage, handleBannerImageUpload }) => {
+const Image = memo(({ currentImage }) => {
   return (
     <>
       <div className=" relative h-full">
@@ -22,14 +22,6 @@ const Image = memo(({ currentImage, handleBannerImageUpload }) => {
           className="absolute right-2 bottom-2 bg-gray-200/90 p-1 rounded-xl "
         >
           <CameraIcon className="md:size-4 size-2 cursor-pointer" />
-          <input
-            className="hidden"
-            data-testid="input-element"
-            type="file"
-            name="image"
-            id="image"
-            onChange={handleBannerImageUpload}
-          />
         </label>
       </div>
     </>

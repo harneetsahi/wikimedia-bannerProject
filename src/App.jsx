@@ -81,16 +81,13 @@ function App() {
     <>
       <div className="max-w-300 m-auto ">
         <Navbar />
-        <Banner
-          bannerState={bannerState}
-          handleBannerImageUpload={handleBannerImageUpload}
-          currentImage={currentImage}
-        />
+        <Banner bannerState={bannerState} currentImage={currentImage} />
         <Form
           bannerState={bannerState}
           handleBannerChange={handleBannerChange}
           handleIllustrationChange={handleIllustrationChange}
           handleColorChange={handleColorChange}
+          handleBannerImageUpload={handleBannerImageUpload}
         />
       </div>
     </>

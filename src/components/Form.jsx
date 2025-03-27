@@ -10,6 +10,7 @@ const Form = memo(
     handleBannerChange,
     handleIllustrationChange,
     handleColorChange,
+    handleBannerImageUpload,
   }) => {
     const showPicker = useRef();
     const [isPickerOpen, setIsPickerOpen] = useState(false);
@@ -20,15 +21,15 @@ const Form = memo(
     return (
       <>
         <main className=" bg-[#e2d9be73] font-roboto text-zinc-700 rounded-md shadow-xl md:w-1/2 mx-3 my-10 md:mx-auto pt-8">
-          <h2 className="text-center md:text-xl text-lg ">
+          <h1 className="text-center md:text-xl text-lg ">
             Customize the banner
-          </h2>
+          </h1>
           <form className="p-8 flex flex-col gap-6 md:text-md text-sm">
             <div>
               <label htmlFor="text">
                 Change banner text
                 <input
-                  className="w-full border-1 border-gray-300 bg-[#ffffff9c] rounded-lg px-2 py-1 mt-2"
+                  className="w-full border-1 border-gray-300 bg-[#ffffff9c] rounded-lg px-2 py-2 mt-2"
                   placeholder="Type new text"
                   type="text"
                   id="text"
@@ -111,16 +112,22 @@ const Form = memo(
               <button
                 onClick={handleIllustrationChange}
                 data-testid="illustration-element"
+                type="button"
               >
-                <RepeatIcon className={"size-6 m-1 cursor-pointer"} />
+                <RepeatIcon className={"size-8 p-1 cursor-pointer"} />
               </button>
             </div>
 
             <div data-testid="camera-element">
               <label htmlFor="image">
-                Click the camera to upload a new image
-                <CameraIcon
-                  className={`size-7 m-1 text-zinc-700 cursor-pointer`}
+                Upload a new image
+                <input
+                  className="block mt-2 w-full border border-gray-200 shadow-sm rounded-lg text-sm file:bg-[#ffffff9c] file:border-0 file:me-4 file:py-2 file:px-4"
+                  data-testid="image-element"
+                  type="file"
+                  name="image"
+                  id="image"
+                  onChange={handleBannerImageUpload}
                 />
               </label>
             </div>
