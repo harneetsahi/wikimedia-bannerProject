@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 import Image from "./Image";
 import Illustration from "./Illustration";
 import CloseIcon from "../icons/CloseIcon";
@@ -6,10 +6,28 @@ import CloseIcon from "../icons/CloseIcon";
 const Banner = memo(
   ({ bannerState, handleBannerImageUpload, currentImage }) => {
     const [showBanner, setShowBanner] = useState(true);
+    const buttonRef = useRef(null);
 
     const hideBanner = () => {
       setShowBanner(false);
     };
+
+    useEffect(() => {
+      const handleKeyDown = (event) => {
+        if (event.key === "Enter") {
+          hideBanner();
+        }
+      };
+
+      const buttonElement = buttonRef.current;
+
+      if (buttonElement) {
+        buttonElement.addEventListener("keydown", handleKeyDown);
+        return () => {
+          buttonElement.removeEventListener("keydown", handleKeyDown);
+        };
+      }
+    }, [hideBanner]);
 
     return (
       <>
@@ -20,7 +38,8 @@ const Banner = memo(
             }}
             className={`w-[calc(100%-2rem)] md:h-25 h-20 transition-all rounded-md shadow-zinc-400 shadow-md relative mt-8  mx-auto`}
           >
-            <div
+            <button
+              ref={buttonRef}
               className="absolute -right-2 -top-2 bg-gray-200 rounded-xl p-1 cursor-pointer z-10"
               title="close banner"
             >
@@ -28,27 +47,26 @@ const Banner = memo(
                 size={"md:size-4 size-2"}
                 onClick={hideBanner}
               ></CloseIcon>
-            </div>
+            </button>
 
             <section className="flex h-full overflow-hidden">
               <img
                 className="sm:h-10 h-5 sm:pl-4 pl-2 self-center transition-all animate-bounce"
                 src="https://meta.wikimedia.org/static/images/icons/metawiki.svg"
-                alt=""
-                aria-hidden="true"
+                alt="Wikimedia Logo"
               />
 
               <div
                 className={`text-center self-center md:text-xl sm:text-lg text-sm px-2 w-1/2 `}
               >
-                <h2
+                <p
                   style={{
                     fontSize: `${bannerState?.fontSize}px`,
                     fontFamily: `${bannerState?.fontFamily}`,
                   }}
                 >
                   {bannerState?.heading}
-                </h2>
+                </p>
               </div>
 
               <div className="sm:block hidden">
