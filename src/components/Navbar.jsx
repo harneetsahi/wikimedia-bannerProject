@@ -27,6 +27,7 @@ const Navbar = memo(() => {
                 className=" w-full border-1 border-x-red-700 border-y-blue-800 rounded-2xl py-1 pl-4 pr-8"
                 type="text"
                 placeholder="Search"
+                name="search"
               />
               <SearchIcon
                 className={
