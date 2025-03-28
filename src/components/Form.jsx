@@ -84,6 +84,7 @@ const Form = memo(
               <div className="flex gap-3 items-center">
                 <button
                   type="button"
+                  aria-label="Change background color"
                   className="w-8 h-8 mt-2 rounded-lg cursor-pointer border-2 border-white"
                   style={{ backgroundColor: bannerState.bgColor }}
                   onClick={() => setIsPickerOpen(true)}
@@ -114,7 +115,7 @@ const Form = memo(
                 onClick={handleIllustrationChange}
                 data-testid="illustration-element"
                 type="button"
-                aria-label="Change illustration"
+                aria-label="Change banner illustration"
               >
                 <RepeatIcon className={"size-8 p-1 cursor-pointer"} />
               </button>
