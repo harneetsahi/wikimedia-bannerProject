@@ -2,29 +2,26 @@ import { useEffect } from "react";
 
 export const useClickedOutside = (ref, handler) => {
   useEffect(() => {
-    let clickInside = false;
-    let startedWhenMounted = false;
-
-    const listener = (event) => {
-      if (clickInside || !startedWhenMounted) return;
-      if (!ref.current || ref.current.contains(event.target)) return;
-
-      handler(event);
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        handler(event);
+      }
     };
 
-    const validateEventStart = (event) => {
-      startedWhenMounted = ref.current;
-      clickInside = ref.current && ref.current.contains(event.target);
+    const handleClick = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        handler(event);
+      }
     };
 
-    document.addEventListener("mousedown", validateEventStart);
-    document.addEventListener("touchstart", validateEventStart);
-    document.addEventListener("click", listener);
+    document.addEventListener("mousedown", handleClick);
+    document.addEventListener("touchstart", handleClick);
+    document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.removeEventListener("mousedown", validateEventStart);
-      document.removeEventListener("touchstart", validateEventStart);
-      document.removeEventListener("click", listener);
+      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("touchstart", handleClick);
+      document.addEventListener("keydown", handleKeyDown);
     };
   }, [ref, handler]);
 };

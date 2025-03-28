@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useRef, useState } from "react";
+import React, { memo, useCallback, useEffect, useRef, useState } from "react";
 import { HexColorPicker } from "react-colorful";
 import { useClickedOutside } from "../hooks/useClickedOutside";
 import CameraIcon from "../icons/CameraIcon";
@@ -82,7 +82,8 @@ const Form = memo(
             <div>
               <p>Change background color</p>
               <div className="flex gap-3 items-center">
-                <div
+                <button
+                  type="button"
                   className="w-8 h-8 mt-2 rounded-lg cursor-pointer border-2 border-white"
                   style={{ backgroundColor: bannerState.bgColor }}
                   onClick={() => setIsPickerOpen(true)}
@@ -100,7 +101,7 @@ const Form = memo(
                       />
                     </div>
                   )}
-                </div>
+                </button>
                 <p className="text-zinc-700 pt-2">
                   Hex code: {bannerState.bgColor}
                 </p>
