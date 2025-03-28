@@ -51,6 +51,7 @@ By default the banner contains:
 - Banner image
 
 All of these elements can be modified using the form controls.
+The page is accessibile for keyboard users and voiceover users.
 
 The page is fully responsive including the navbar, form, images, icons, fonts, and the banner height.
 
