@@ -25,7 +25,7 @@ In the current phase, the project focuses on creating a simple web page that all
 1. Full width banner
 2. Form to modify the banner elements
 
-### Usage
+### 📋 Usage 
 
 The following functionalities are available through form controls:
 
@@ -41,6 +41,11 @@ The following functionalities are available through form controls:
 
 - **Upload a new image:** Fourth input also contains an icon and it allows users to upload a new photo to replace the current banner image. I also added this functionality on the banner with the same camera icon for UI consistency.
 
+### ♿️ Accessibility 
+
+The page is accessibile for keyboard and voiceover users.
+The page is fully responsive for mobile, tablet, and desktop screens.
+
 ### Default Banner
 
 By default the banner contains:
@@ -51,15 +56,12 @@ By default the banner contains:
 - Banner image
 
 All of these elements can be modified using the form controls.
-The page is accessibile for keyboard users and voiceover users.
 
-The page is fully responsive including the navbar, form, images, icons, fonts, and the banner height.
-
-### Project proposition 🎨
+### 🎨 Project proposition 
 
 Currently the project uses pre-existing illustrations from different artists due to time constraints. However, I am great at making vector illustrations and would be happy to create custom illustrations if needed for the larger project.
 
-### Setup and Installation
+### 💻 Setup and Installation
 
 1. **Clone the repository**
 
