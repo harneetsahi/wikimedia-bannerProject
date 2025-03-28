@@ -21,7 +21,7 @@ export const useClickedOutside = (ref, handler) => {
     return () => {
       document.removeEventListener("mousedown", handleClick);
       document.removeEventListener("touchstart", handleClick);
-      document.addEventListener("keydown", handleKeyDown);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, [ref, handler]);
 };
