@@ -101,7 +101,7 @@ const Form = memo(
                     </div>
                   )}
                 </div>
-                <p className="text-zinc-500 pt-2">
+                <p className="text-zinc-700 pt-2">
                   Hex code: {bannerState.bgColor}
                 </p>
               </div>
@@ -113,6 +113,7 @@ const Form = memo(
                 onClick={handleIllustrationChange}
                 data-testid="illustration-element"
                 type="button"
+                aria-label="Change illustration"
               >
                 <RepeatIcon className={"size-8 p-1 cursor-pointer"} />
               </button>
