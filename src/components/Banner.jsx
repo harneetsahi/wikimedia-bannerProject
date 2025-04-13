@@ -36,7 +36,7 @@ const Banner = memo(
             style={{
               backgroundColor: bannerState?.bgColor,
             }}
-            className={`w-[calc(100%-2rem)] md:h-25 h-20 transition-all rounded-md shadow-zinc-400 shadow-md relative mt-8  mx-auto`}
+            className={`w-[calc(100%-2rem)] h-20 transition-all rounded-md shadow-zinc-400 shadow-md relative mt-8  mx-auto`}
           >
             <button
               ref={buttonRef}
@@ -51,7 +51,7 @@ const Banner = memo(
 
             <section className="flex h-full overflow-hidden">
               <img
-                className="sm:h-10 h-5 sm:pl-4 pl-2 self-center transition-all animate-bounce"
+                className="sm:h-10 h-5 sm:pl-4 pl-2 self-center transition-all"
                 src="https://meta.wikimedia.org/static/images/icons/metawiki.svg"
                 alt="Wikimedia Logo"
               />
